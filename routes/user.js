@@ -18,11 +18,12 @@ exports.index = function (req, res) {
 
 // POST new user creation form
 exports.doCreate = function (req, res) {
+    console.log(req);
     User.create({
-        name: req.body.FullName,
-        email: req.body.Email,
-        modifiedOn: Date.now(),
-        lastLogin: Date.now()
+        name: req.body.fullName,
+        email: req.body.email,
+        modifiedOn: req.body.modifiedOn,
+        lastLogin: req.body.lastLogin
     }, function (err, user) {
         if (err) {
             console.log(err);
